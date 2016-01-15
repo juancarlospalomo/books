@@ -13,7 +13,7 @@ if (name == undefined) {
 //check if name var is undefined and its type it is undefined too
 if (name === undefined) {
     //It will print this out
-    console.log("name var is " + name + " type: " + typeof(name));
+    console.log("name var is " + name + " type: " + typeof (name));
 } else {
     console.log(name);
 }
@@ -32,5 +32,11 @@ if (name === undefined) {
     console.log("name var is " + name);
 } else {
     //It will print this out, because its type is object
-    console.log(name + " type: " + typeof(null));
+    console.log(name + " type: " + typeof (null));
+}
+
+if (!name) {
+    //undefined eval to false, so if it is undefined this comparation will return true
+    console.log("is defined = false");
+    console.log(!undefined);
 }
