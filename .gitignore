@@ -1,2 +1,5 @@
 # packages directory
 .vscode/
+bin/
+obj/
+.vs/
