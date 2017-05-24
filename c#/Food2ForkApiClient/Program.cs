@@ -7,7 +7,11 @@ namespace Food2ForkApiClient
         static void Main(string[] args)
         {
             RecipeServices recipeServices = new RecipeServices();
-            Console.WriteLine(recipeServices.BuildUrl());
+            var recipes = recipeServices.SearchAsync("rice").Result;
+
+            foreach (Recipe recipe in recipes) {
+                Console.WriteLine($"{recipe.title} : {recipe.rank} | {recipe.imageUrl}");
+            }
         }
     }
 }
