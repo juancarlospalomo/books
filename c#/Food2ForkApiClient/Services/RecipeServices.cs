@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Runtime.Serialization.Json;
+using Microsoft.Extensions.Logging;
 
 namespace Food2ForkApiClient
 {
@@ -15,6 +16,8 @@ namespace Food2ForkApiClient
             Get
         }
 
+        #region "Constants"
+
         //Example of GET Request: http://food2fork.com/api/search?key=16fb9daf53cd0cd3a321933ec630f2a1&q=cocido
         private const string API_KEY = "16fb9daf53cd0cd3a321933ec630f2a1";
         private const string API_KEY_PARAM_NAME = "key";
@@ -24,6 +27,19 @@ namespace Food2ForkApiClient
         private const string API_GET_COMMAND = "get";
         private const string SEARCH_URL_PARAM = "q";
         private const string GET_URL_PARAM = "rId";
+
+        #endregion
+
+        #region "Private members"
+
+        private ILogger<RecipeServices> _logger;
+
+        #endregion
+
+        public RecipeServices(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<RecipeServices>();
+        }
 
         //TODO: Remove
         private string BuildUrl(ApiCommand command, string value)
@@ -53,6 +69,8 @@ namespace Food2ForkApiClient
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Add("Accept-Content", "application/json");
+
+            _logger.LogInformation($"Searching {pattern}");
 
             var stream = httpClient.GetStreamAsync(BuildUrl(ApiCommand.Search, pattern));
 
