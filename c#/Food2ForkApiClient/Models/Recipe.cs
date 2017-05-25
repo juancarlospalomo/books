@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Food2ForkApiClient
 {
+    [DataContractAttribute]
     public class Recipe
     {
         [DataMemberAttribute(Name = "recipe_id")]
@@ -19,6 +20,9 @@ namespace Food2ForkApiClient
 
         [DataMemberAttribute(Name = "social_rank")]
         public double rank { get; set; }
+
+        [DataMemberAttribute(Name = "image_url")]
+        public string imageUrl { get; set; }
 
     }
 
