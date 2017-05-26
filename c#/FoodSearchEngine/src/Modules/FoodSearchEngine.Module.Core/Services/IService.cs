@@ -7,7 +7,7 @@ namespace FoodSearchEngine.Module.Core.Services
 {
     public interface IService<Entity>
     {
-        Task<List<Entity>> SearchAsync(string query);
-        Task<Entity> GetAsync(string id);
+        Task<RecipesResult> SearchAsync(string query);
+        Task<Recipe> GetAsync(string id);
     }
 }
