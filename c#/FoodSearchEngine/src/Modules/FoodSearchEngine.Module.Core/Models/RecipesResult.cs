@@ -24,12 +24,12 @@ namespace FoodSearchEngine.Module.Core.Models
             bool canBe = false;
 
             var stream = new System.IO.MemoryStream();
-            byte[] buffer = ASCIIEncoding.ASCII.GetBytes(json);
+            byte[] buffer = Encoding.ASCII.GetBytes(json);
             stream.Read(buffer, 0, buffer.Length);
 
             var serializer = new DataContractJsonSerializer(typeof(RecipesResult));
             stream.Seek(0, System.IO.SeekOrigin.Begin);
-            
+
             var result = serializer.ReadObject(stream) as RecipesResult;
             if ((result != null && result.current != null) ||
                     (result != null && result.recipes != null))
