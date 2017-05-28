@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 namespace FoodSearchEngine.Module.Core.Models
 {
@@ -25,8 +26,24 @@ namespace FoodSearchEngine.Module.Core.Models
         [DataMemberAttribute(Name = "image_url")]
         public string imageUrl { get; set; }
 
-/*        [DataMemberAttribute(Name = "ingredients")]
-        private string ingredientsName { get; set; }*/
+        [DataMemberAttribute(Name = "ingredients")]
+        private string[] ingredientsArray { get; set; }
+
+        [IgnoreDataMember]
+        public List<Ingredient> Ingredients
+        {
+            get
+            {
+                var ingredientList = new List<Ingredient>();
+                foreach (string value in ingredientsArray)
+                {
+                    ingredientList.Add(new Ingredient() { name = value });
+                }
+
+                return ingredientList;
+            }
+        }
+
     }
 
 }

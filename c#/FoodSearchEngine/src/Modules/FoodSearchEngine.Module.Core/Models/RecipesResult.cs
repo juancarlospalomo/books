@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using System.IO;
 
 namespace FoodSearchEngine.Module.Core.Models
 {
@@ -24,11 +25,11 @@ namespace FoodSearchEngine.Module.Core.Models
             bool canBe = false;
 
             var stream = new System.IO.MemoryStream();
-            byte[] buffer = Encoding.ASCII.GetBytes(json);
-            stream.Read(buffer, 0, buffer.Length);
+            byte[] buffer = Encoding.UTF8.GetBytes(json);
+            stream.Write(buffer, 0, buffer.Length - 1);
+            stream.Seek(0, SeekOrigin.Begin);
 
             var serializer = new DataContractJsonSerializer(typeof(RecipesResult));
-            stream.Seek(0, System.IO.SeekOrigin.Begin);
 
             var result = serializer.ReadObject(stream) as RecipesResult;
             if ((result != null && result.current != null) ||

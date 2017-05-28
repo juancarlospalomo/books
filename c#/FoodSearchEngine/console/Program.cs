@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using FoodSearchEngine.Module.Core.Models;
 using FoodSearchEngine.Module.Core.Services;
 
@@ -9,13 +10,42 @@ namespace console
         static void Main(string[] args)
         {
             TestCanBeDeserialized();
-            //TestGetShouldReturnResult();
-            Console.WriteLine("Hello World!");
+            TestGetShouldReturnResult();
+            Console.WriteLine("Finished!");
+        }
+
+        static string BuildStaticJson() {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("{");
+            builder.Append("  \"recipe\": {");
+            builder.Append("    \"publisher\": \"Closet Cooking\",");
+            builder.Append("    \"f2f_url\": \"http://food2fork.com/view/35171\",");
+            builder.Append("    \"ingredients\": [");
+            builder.Append("      \"1/4 cup cooked shredded chicken, warm\",");
+            builder.Append("      \"1 tablespoon hot sauce\",");
+            builder.Append("      \"1/2 tablespoon mayo (optional)\",");
+            builder.Append("      \"1 tablespoon carrot, grated\",");
+            builder.Append("      \"1 tablespoon carrot, grated\",");
+            builder.Append("      \"1 tablespoon green or red onion, sliced or diced\",");
+            builder.Append("      \"1 tablespoon blue cheese, room temperature, crumbled\",");
+            builder.Append("      \"1/2 cup cheddar cheese, room temperature, grated\",");
+            builder.Append("      \"2 slices bread\",");
+            builder.Append("      \"1 tablespoon butter, room temperature\"");
+            builder.Append("    ],");
+            builder.Append("    \"source_url\": \"http://www.closetcooking.com/2011/08/buffalo-chicken-grilled-cheese-sandwich.html\",");
+            builder.Append("    \"recipe_id\": \"35171\",");
+            builder.Append("    \"image_url\": \"http://static.food2fork.com/Buffalo2BChicken2BGrilled2BCheese2BSandwich2B5002B4983f2702fe4.jpg\",");
+            builder.Append("    \"social_rank\": 100.0,");
+            builder.Append("    \"publisher_url\": \"http://closetcooking.com\",");
+            builder.Append("    \"title\": \"Buffalo Chicken Grilled Cheese Sandwich\"");
+            builder.Append("  }");
+            builder.Append("}");
+            return builder.ToString();
         }
 
         static void TestCanBeDeserialized()
         {
-            string json = "{\"recipe\": {\"publisher\": \"Closet Cooking\", \"f2f_url\": \"http://food2fork.com/view/35171\", \"ingredients\": [\"1/4 cup cooked shredded chicken, warm\", \"1 tablespoon hot sauce\", \"1/2 tablespoon mayo (optional)\",\"1 tablespoon carrot, grated\", \"1 tablespoon celery, sliced\", \"1 tablespoon green or red onion, sliced or diced\", \"1 tablespoon blue cheese, room temperature, crumbled\", \"1/2 cup cheddar cheese, room temperature, grated\", \"2 slices bread\", \"1 tablespoon butter, room temperature\n\"], \"source_url\": \"http://www.closetcooking.com/2011/08/buffalo-chicken-grilled-cheese-sandwich.html\", \"recipe_id\": \"35171\", \"image_url\": \"http://static.food2fork.com/Buffalo2BChicken2BGrilled2BCheese2BSandwich2B5002B4983f2702fe4.jpg\", \"social_rank\": 100.0, \"publisher_url\": \"http://closetcooking.com\", \"title\": \"Buffalo Chicken Grilled Cheese Sandwich\"}}";
+            string json = BuildStaticJson();
             RecipesResult recipesResult = new RecipesResult();
             var result = recipesResult.CanBeDeserialized(json);
 
