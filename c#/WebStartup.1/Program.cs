@@ -41,7 +41,7 @@ namespace WebStartup._1
                 .ConfigureServices(service=>service.AddSingleton(new Greeter()))
                 .Configure(app=>{
                     app.Run(context=> {
-                        return context.Response.WriteAsync($"Hello {DateTime.UtcNow.ToString()}");
+                        return context.Response.WriteAsync($"Hello {DateTime.UtcNow.ToString}");
                     });
                 }).Build();
 
