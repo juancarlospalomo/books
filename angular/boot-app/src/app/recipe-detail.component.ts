@@ -1,16 +1,33 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { ActivatedRoute, Params } from "@angular/router";
+import { Location } from "@angular/common";
 import { Recipe } from "./recipe";
+import { RecipeService } from "./recipe.service";
+import "rxjs/add/operator/switchMap";
 
 @Component({
   selector: "recipe-detail",
-  template: `
-        <div *ngIf="recipe">
-            <h2>{{recipe.name}}</h2>
-            <img src="{{recipe.image}}" />
-        </div>
-    `
+  templateUrl: "./recipe-detail.component.html"
 })
 
-export class RecipeDetailComponent {
+export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
+
+  constructor(
+    private recipeService: RecipeService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params
+      .switchMap((params: Params) =>
+        this.recipeService.getRecipe(+params["id"])
+      )
+      .subscribe(recipe => (this.recipe = recipe));
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
