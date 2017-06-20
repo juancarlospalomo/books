@@ -7,36 +7,21 @@ import { RecipeService } from "./recipe.service";
 import { RecipeComponent } from "./recipe.component";
 import { RouterModule } from "@angular/router";
 import { DashboardComponent } from "./dashborard.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { MdToolbarModule, MdIconModule } from "@angular/material";
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipeComponent,
     RecipeDetailComponent,
-    DashboardComponent
+    DashboardComponent    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: "recipes",
-        component: RecipeComponent
-      },
-      {
-        path: "dashboard",
-        component: DashboardComponent
-      },
-      {
-        path: "",
-        redirectTo: "/dashboard",
-        pathMatch: "full"
-      },
-      {
-        path: "detail/:id",
-        component: RecipeDetailComponent
-      }
-    ])
+    MdToolbarModule,
+    AppRoutingModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

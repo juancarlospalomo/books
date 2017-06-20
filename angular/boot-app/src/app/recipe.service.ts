@@ -5,9 +5,10 @@ import { RECIPES } from "../mock/mock-recipes";
 @Injectable()
 export class RecipeService {
   getRecipes(): Promise<Recipe[]> {
-    return new Promise(resolve => {
-      setTimeout(() => resolve(RECIPES), 1000);
-    });
+/*    return new Promise(resolve => {
+      setTimeout(() => resolve(RECIPES), 0);
+    });*/
+    return new Promise(resolve => resolve(RECIPES));
   }
 
   getRecipe(id: number): Promise<Recipe> {

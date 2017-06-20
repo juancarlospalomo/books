@@ -9,6 +9,7 @@ h1 {
   width: 30%;
   margin: 0 0 2em 0;
   padding: 0;
+  display: inline-block
 }
 
 .recipes li {
@@ -52,4 +53,9 @@ h1 {
 .selected {
   background-color: #CFD8DC !important;
   color: white;
+}
+
+.recipe-detail {
+  position: fixed;
+  padding: 0 0 0 10%
 }

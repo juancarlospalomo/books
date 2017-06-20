@@ -6,21 +6,22 @@ import { OnInit } from "@angular/core";
 @Component({
   selector: "recipes",
   template: `
-    <h1>{{title}}</h1>
-    <h2>Recipes list</h2>
-    <ul class="recipes">
-      <li *ngFor="let recipe of recipes" 
-              [class.selected] = "recipe === selectedRecipe"
-              (click)="onSelect(recipe)">
-        <span class="badge">{{recipe.id}}</span><span class="text">{{recipe.name}}</span>
-      </li>
-    </ul>
-    <div *ngIf="selectedRecipe">
-      <recipe-detail [recipe]="selectedRecipe"></recipe-detail>
+    <div>
+      <h1>{{title}}</h1>
+      <h2>Recipes list</h2>
+      <ul class="recipes">
+        <li *ngFor="let recipe of recipes" 
+                [class.selected] = "recipe === selectedRecipe"
+                (click)="onSelect(recipe)">
+          <span class="badge">{{recipe.id}}</span><span class="text">{{recipe.name}}</span>
+        </li>
+      </ul>
+      <recipe-detail class="recipe-detail" [recipe]="selectedRecipe"></recipe-detail>  
     </div>
     `,
   styleUrls: ["./recipe.component.css"]
 })
+
 export class RecipeComponent implements OnInit {
   selectedRecipe: Recipe;
   recipes: Recipe[];
