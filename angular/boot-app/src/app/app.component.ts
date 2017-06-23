@@ -1,26 +1,16 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-root",
-  template: `
-    <md-toolbar color="primary">
-      {{title}}
-      <md-toolbar-row>
-        <span>Second line</span>
-        <span class="menu-item-spacer"></span>
-        <md-icon class="material-icons">account_circle</md-icon>
-      </md-toolbar-row>
-    </md-toolbar>
-    
-    <h1>{{title}}</h1>
-    <nav>
-        <a routerLink="/dashboard">Dashboard</a>
-        <a routerLink="/recipes">Recipes</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
-  styleUrls: ['app.component.css']
+  templateUrl: "app.component.html",
+  styleUrls: ["app.component.css"]
 })
 export class AppComponent {
   title = "Recipes App";
+  constructor(private router: Router) {}
+
+  navigate = function(path: string) {
+    this.router.navigateByUrl(path);
+  };
 }

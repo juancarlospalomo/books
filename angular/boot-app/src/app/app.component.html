@@ -1,10 +1,28 @@
 <!--The whole content below can be removed with the new code.-->
-<div style="text-align:center">
+<!--<md-toolbar color="primary">
+  {{title}}
+  <md-toolbar-row>
+    <span>Second line</span>
+    <span class="menu-item-spacer"></span>
+    <md-icon class="material-icons">account_circle</md-icon>
+  </md-toolbar-row>
+</md-toolbar>
+<div style="text-align:center">-->
 
-</div>
-<div>
-  <recipe-detail [recipe]="selectedRecipe"></recipe-detail>
-  <img ng-src="http://images.media-allrecipes.com/userphotos/560x315/402350.jpg"></img>
-</div>
+<md-toolbar color="primary">
+  <span class="menu-button-spacer"></span>
+  <button md-icon-button [mdMenuTriggerFor]="appMenu">
+    <md-icon class="material-icons">more_vert</md-icon>
+  </button>
+</md-toolbar>
+<nav>
+  <!--  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/recipes">Recipes</a>-->
+  <md-menu #appMenu="mdMenu">
+    <button md-menu-item (click)="navigate('/dashboard')">Dashboard</button>
+    <button md-menu-item (click)="navigate('/recipes')">Recipes</button>
+  </md-menu>
+</nav>
+<h1>{{title}}</h1>
 
-
+<router-outlet></router-outlet>
