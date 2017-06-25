@@ -7,7 +7,6 @@ import { OnInit } from "@angular/core";
   selector: "recipes",
   template: `
     <div>
-      <h1>{{title}}</h1>
       <h2>Recipes list</h2>
       <ul class="recipes">
         <li *ngFor="let recipe of recipes" 

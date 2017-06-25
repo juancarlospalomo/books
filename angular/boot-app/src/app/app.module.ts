@@ -9,7 +9,9 @@ import {
   MaterialModule,
   MdToolbarModule,
   MdIconModule,
-  MdMenuModule
+  MdMenuModule,
+  MdGridListModule,
+  MdCardModule
 } from "@angular/material";
 
 import { RecipeDetailComponent } from "./recipe-detail.component";
@@ -22,7 +24,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     RecipeComponent,
     RecipeDetailComponent,
     DashboardComponent
@@ -35,6 +37,8 @@ import { AppRoutingModule } from "./app-routing.module";
     MaterialModule,
     MdToolbarModule,
     MdMenuModule,
+    MdGridListModule,
+    MdCardModule,
     AppRoutingModule
   ],
   providers: [RecipeService],
