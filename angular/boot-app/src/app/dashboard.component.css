@@ -1,3 +1,8 @@
+.ra-list-item {
+    width: 90%;
+    padding-bottom: 1.5em;
+}
+
 .ra-card-recipe {
     width: 100%;
 }

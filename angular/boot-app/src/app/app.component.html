@@ -9,8 +9,14 @@
 </md-toolbar>
 <nav>
   <md-menu #appMenu="mdMenu">
-    <button md-menu-item (click)="navigate('/dashboard')">Dashboard</button>
-    <button md-menu-item (click)="navigate('/recipes')">Recipes</button>
+    <button md-menu-item (click)="navigate('/dashboard')">
+      <md-icon>featured_play_list</md-icon>
+      <span>Dashboard</span>
+    </button>
+    <button md-menu-item (click)="navigate('/recipes')">
+      <md-icon>library_books</md-icon>
+      <span>Recipes</span>
+    </button>
   </md-menu>
 </nav>
 

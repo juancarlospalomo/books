@@ -11,7 +11,8 @@ import {
   MdIconModule,
   MdMenuModule,
   MdGridListModule,
-  MdCardModule
+  MdCardModule,
+  MdListModule
 } from "@angular/material";
 
 import { RecipeDetailComponent } from "./recipe-detail.component";
@@ -19,12 +20,12 @@ import { AppComponent } from "./app.component";
 import { RecipeService } from "./recipe.service";
 import { RecipeComponent } from "./recipe.component";
 
-import { DashboardComponent } from "./dashborard.component";
+import { DashboardComponent } from "./dashboard.component";
 import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
     RecipeComponent,
     RecipeDetailComponent,
     DashboardComponent
@@ -39,6 +40,7 @@ import { AppRoutingModule } from "./app-routing.module";
     MdMenuModule,
     MdGridListModule,
     MdCardModule,
+    MdListModule,
     AppRoutingModule
   ],
   providers: [RecipeService],

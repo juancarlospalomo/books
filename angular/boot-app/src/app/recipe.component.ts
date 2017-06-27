@@ -5,19 +5,7 @@ import { OnInit } from "@angular/core";
 
 @Component({
   selector: "recipes",
-  template: `
-    <div>
-      <h2>Recipes list</h2>
-      <ul class="recipes">
-        <li *ngFor="let recipe of recipes" 
-                [class.selected] = "recipe === selectedRecipe"
-                (click)="onSelect(recipe)">
-          <span class="badge">{{recipe.id}}</span><span class="text">{{recipe.name}}</span>
-        </li>
-      </ul>
-      <recipe-detail class="recipe-detail" [recipe]="selectedRecipe"></recipe-detail>  
-    </div>
-    `,
+  templateUrl: "./recipe.component.html" ,
   styleUrls: ["./recipe.component.css"]
 })
 

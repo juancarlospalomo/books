@@ -1,0 +1,12 @@
+<div>
+    <h2>Recipes list</h2>
+    <md-list>
+        <md-list-item *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)">
+            <md-icon md-list-icon>folder</md-icon>
+            <h4 md-line>{{recipe.name}}</h4>
+            <p md-line> {{recipe.lastPubDate | date}} </p>
+        </md-list-item>
+    </md-list>
+
+    <recipe-detail [recipe]="selectedRecipe"></recipe-detail>
+</div>
