@@ -1,13 +1,21 @@
 <h3>Top Recipes</h3>
 
-<div class="ra-list-item" *ngFor="let recipe of recipes">
-    <md-card class="ra-card-recipe" md-theme="default">
-        <md-card-header>
-            <md-card-title>{{recipe.name}}</md-card-title>
-        </md-card-header>
-        <img src="{{recipe.image}}">
-        <md-card-actions>
-            <button md-button [routerLink]="['/detail', recipe.id]">VIEW NOW</button>
-        </md-card-actions>
-    </md-card>
+<div class="ra-list-container">
+
+    <div class="ra-list-item" *ngFor="let recipe of recipes">
+        <md-card class="ra-card-recipe" md-theme="default">
+            <md-card-header class="ra-card-header-recipe">
+                <md-card-title>{{recipe.name}}</md-card-title>
+            </md-card-header>
+            <img md-card-image src="{{recipe.image}}">
+            <md-card-content>
+                <p></p>
+            </md-card-content>
+            <md-card-actions>
+                <button md-button [routerLink]="['/detail', recipe.id]">VIEW NOW</button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
 </div>
+

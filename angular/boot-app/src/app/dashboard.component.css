@@ -1,12 +1,43 @@
+.ra-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  max-width: 95%;
+}
+
 .ra-list-item {
-    width: 90%;
-    padding-bottom: 1.5em;
+  width: 100%;
+  height: 100%;
+  margin: 0 1em 1em 0;
 }
 
 .ra-card-recipe {
-    width: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .ra-card-header-recipe {
-    background-size: cover;
+  height: 20%;
 }
+
+@media screen and (min-width: 525px) {
+  .ra-list-item {
+    width: 400px;
+    height: 271px;
+    margin: 0 1.5em 1.5em 1.5em;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .ra-list-item {
+    width: 25%;
+    height: 271px;
+  }
+
+  .ra-list-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
